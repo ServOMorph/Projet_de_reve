@@ -1,39 +1,38 @@
 # Signals — projet_de_reve   (MAJ 2026-07-21)
 
 ## Actions ouvertes
-- [P1|ouvert] Réaliser le test humain audio et émotionnel de Rêverie v1.1
-  fait quand: l'utilisateur a entendu les notes et la nappe, débloqué le Sanctuaire après cinq plantes adultes, exploré ses lueurs et donné son ressenti
-  réf: README.md, js/audio.js, js/sanctuaire.js
-- [P2|ouvert] Atteindre un premier seuil d'évaluation du Sanctuaire
-  fait quand: l'Observatoire compte au moins 5 expositions sur plusieurs sessions et un verdict humain, puis son export JSON est examiné
-  réf: js/observatoire.js, _docs/analyse_technique.md (protocole d'expérience v1.1)
-- [P2|ouvert] Choisir la prochaine évolution à partir des usages réels
-  fait quand: une nouvelle hypothèse de feature est formulée à partir du journal exporté et de l'avis humain, avec ses critères garder/améliorer/pause avant implémentation
-  réf: _docs/analyse_technique.md (sections 7 et 8)
+- [P1|ouvert] Réaliser le test humain audio de Rêverie
+  fait quand: l'utilisateur a ouvert `index.html`, entendu les notes et la nappe, et donné son retour
+  réf: README.md, js/audio.js
+- [P2|ouvert] Recueillir une première base d'usage dans l'Observatoire
+  fait quand: plusieurs sessions ont été réalisées, le journal local est exporté et ses signaux sont relus avec l'utilisateur
+  réf: js/observatoire.js, README.md
+- [P2|ouvert] Proposer la prochaine feature à partir des usages et des idées rejetées
+  fait quand: une hypothèse de feature, ses critères garder/améliorer/pause et son incompatibilité éventuelle avec les rejets sont documentés avant implémentation
+  réf: _docs/analyse_technique.md (sections 7 et 8), _docs/features_non_retenues.md
 
 ## Dernière session (2026-07-21)
 
 # Session du 2026-07-21
 
 ## Décisions prises
-- Les évolutions sont désormais traitées comme des expériences réversibles : identifiant, exposition, activation, durée, verdict humain et interrupteur.
+- Les évolutions restent des expériences réversibles : identifiant, exposition, activation, durée, verdict humain et interrupteur.
 - L'Observatoire reste entièrement local et ne conserve ni contenu saisi ni coordonnées précises ; aucune suppression n'est automatique.
-- Le Sanctuaire nocturne est la première feature choisie à partir des goûts déclarés : mystère, exploration, profondeur et beaux univers.
+- Le Sanctuaire nocturne est retiré du jeu à la demande de l'utilisateur. Son rejet est documenté afin d'orienter les prochaines roadmaps.
 
 ## Livrables produits ou modifiés
 - `js/observatoire.js` : journal local borné, panneau, export, effacement, évaluation et feature flags.
-- `js/sanctuaire.js` : passage après cinq plantes adultes, scène nocturne en parallaxe, lueurs musicales et retour au jardin.
-- `index.html`, `style.css`, `js/main.js` : interface, intégration et instrumentation.
-- `README.md`, `_docs/analyse_technique.md`, `CHANGELOG.md` : protocole et fonctionnement documentés.
-- `_artifacts/reverie-sanctuaire.png`, `_artifacts/reverie-observatoire.png` : captures de contrôle.
+- `index.html`, `style.css`, `js/main.js` : jardin rétabli sans le Sanctuaire.
+- `_docs/features_non_retenues.md` : mémoire structurée du concept rejeté et règle pour les prochaines propositions.
+- `README.md`, `_docs/analyse_technique.md`, `CHANGELOG.md` : documentation alignée.
 
 ## Hypothèses validées / invalidées
-- VALIDE : parcours automatisé complet sans erreur console ni requête réseau ; métriques, pause/réactivation et verdict persistent localement.
-- VALIDE : le Sanctuaire se débloque après cinq plantes adultes, accepte clics/clavier et rend le contrôle au jardin.
-- EN ATTENTE : qualité du rendu audio et impact émotionnel évalués par une personne.
+- VALIDE : le jardin et l'Observatoire sont vérifiés localement sans erreur console ni requête réseau.
+- VALIDE : l'Observatoire affiche explicitement qu'aucune expérience n'est en cours après retrait.
+- EN ATTENTE : qualité du rendu audio évaluée par une personne ; premier journal d'usage réel.
 
 ## Prochaine étape exacte
-Ouvrir `index.html`, planter au moins cinq graines, attendre leur éclosion, entrer dans le Sanctuaire, écouter et explorer, puis donner son verdict dans l'Observatoire.
+Ouvrir `index.html`, écouter le jardin et utiliser l'Observatoire sur plusieurs sessions ; avant toute proposition, lire `features_non_retenues.md`.
 
 ## Question bloquante pour la session suivante
 Aucune.

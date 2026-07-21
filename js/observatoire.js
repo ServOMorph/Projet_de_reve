@@ -8,12 +8,7 @@ const Observatoire = (() => {
   const SESSIONS_MAX = 60;
   const JOURS_MAX = 90;
 
-  const EXPERIENCES = {
-    sanctuaire_nocturne_v1: {
-      nom: "Sanctuaire nocturne",
-      description: "Un passage secret vers un paysage contemplatif en profondeur.",
-    },
-  };
+  const EXPERIENCES = {};
 
   const maintenantIso = () => new Date().toISOString();
   const jourLocal = () => {
@@ -229,7 +224,7 @@ const Observatoire = (() => {
       <article><strong>${donnees.compteurs.planter || 0}</strong><span>graines plantées</span></article>
     `;
 
-    liste.innerHTML = Object.entries(EXPERIENCES).map(([id, definition]) => {
+    const cartes = Object.entries(EXPERIENCES).map(([id, definition]) => {
       const exp = experience(id);
       const recommandation = recommander(id);
       return `
@@ -256,6 +251,7 @@ const Observatoire = (() => {
         </article>
       `;
     }).join("");
+    liste.innerHTML = cartes || "<p class=\"experience-vide\">Aucune expérience n’est en cours d’évaluation. La prochaine idée sera ajoutée ici avec ses critères de décision.</p>";
   }
 
   function ouvrir() {

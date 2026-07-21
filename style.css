@@ -102,46 +102,7 @@ html, body {
 
 #invite.cache { opacity: 0; animation: none; }
 
-.appel-sanctuaire,
-.retour-sanctuaire {
-  position: fixed;
-  left: 50%;
-  z-index: 12;
-  transform: translateX(-50%);
-  border: 1px solid rgba(166, 239, 237, 0.55);
-  border-radius: 999px;
-  padding: 0.65rem 1.15rem;
-  color: rgba(235, 255, 252, 0.94);
-  background: linear-gradient(135deg, rgba(24, 48, 64, 0.72), rgba(48, 38, 91, 0.68));
-  box-shadow: 0 0 28px rgba(107, 223, 231, 0.2), inset 0 0 18px rgba(156, 248, 235, 0.08);
-  backdrop-filter: blur(8px);
-  font: 0.9rem Georgia, "Times New Roman", serif;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.5s ease;
-}
-
-.appel-sanctuaire { bottom: 5.2rem; }
-.retour-sanctuaire { bottom: 1.6rem; }
-
-.appel-sanctuaire:hover,
-.retour-sanctuaire:hover,
-.appel-sanctuaire:focus-visible,
-.retour-sanctuaire:focus-visible {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 0 42px rgba(107, 223, 231, 0.36), inset 0 0 20px rgba(156, 248, 235, 0.12);
-  outline: 1px solid rgba(235, 255, 252, 0.9);
-  outline-offset: 3px;
-}
-
 [hidden] { display: none !important; }
-
-body.sanctuaire-actif #titre,
-body.sanctuaire-actif #commandes,
-body.sanctuaire-actif #invite {
-  opacity: 0;
-  pointer-events: none;
-}
 
 #observatoire {
   position: fixed;
@@ -285,6 +246,13 @@ body.sanctuaire-actif #invite {
 
 .experience dt { color: rgba(217, 237, 232, 0.5); font-size: 0.72rem; }
 .experience dd { margin-top: 0.22rem; color: #c9eee7; font-size: 0.9rem; }
+.experience-vide {
+  margin-top: 1rem !important;
+  padding: 1rem;
+  border: 1px dashed rgba(150, 213, 207, 0.28);
+  border-radius: 0.9rem;
+  background: rgba(0, 0, 0, 0.12);
+}
 
 .evaluation {
   display: flex;
@@ -320,7 +288,6 @@ body.panneau-ouvert #ciel { filter: saturate(0.72) brightness(0.65); }
 
 @media (prefers-reduced-motion: reduce) {
   #invite { animation: none; opacity: 0.6; }
-  .appel-sanctuaire, .retour-sanctuaire { transition: none; }
 }
 
 @media (max-width: 720px) {

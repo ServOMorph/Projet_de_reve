@@ -8,11 +8,10 @@ HTML + CSS + JavaScript vanilla, Web Audio API, canvas 2D. Zéro dépendance, z�
 fonctionne en file:// (pas de modules ES). Données uniquement en localStorage.
 
 ## État actuel (réécrit intégralement à chaque /close)
-Rêverie v1.1 fonctionnelle : jardin sonore génératif, Observatoire d'usage local et première
-expérience réversible, le Sanctuaire nocturne. Le journal mesure sessions, durées et catégories
-d'actions sans contenu saisi ni coordonnées précises. Le parcours visuel, la persistance et
-l'absence de réseau sont validés par Playwright ; l'audio et l'impact émotionnel restent à tester
-humainement. Référence pour la suite : `_docs/analyse_technique.md`.
+Rêverie v1.2 fonctionnelle : jardin sonore génératif et Observatoire d'usage local, prêt à
+évaluer une future expérience. Le Sanctuaire nocturne a été retiré et son rejet est mémorisé dans
+`_docs/features_non_retenues.md`. Le jardin, la persistance, l'Observatoire et l'absence de
+réseau sont validés localement ; l'audio et l'impact émotionnel restent à tester humainement.
 
 ## Décisions structurantes (append only — 10 entrées max, 5 lignes max/entrée, archiver au-delà)
 - 2026-07-21 : Initialisation du protocole vibecoding.
@@ -26,5 +25,5 @@ humainement. Référence pour la suite : `_docs/analyse_technique.md`.
   de saisie ou de position, aucun réseau, export et effacement contrôlés par l'utilisateur.
 - 2026-07-21 : Toute nouvelle expérience doit être isolable, mesurable et réversible ; les données
   peuvent recommander garder/améliorer/pause mais aucune feature n'est supprimée automatiquement.
-- 2026-07-21 : Le Sanctuaire nocturne devient la première expérience v1.1 et ouvre l'évolution de
-  Rêverie vers des mondes plus mystérieux, profonds et explorables.
+- 2026-07-21 : Le Sanctuaire nocturne est retiré à la demande de l'utilisateur. Son concept est
+  consigné comme rejeté et ne doit pas être reproposé tel quel dans une roadmap.

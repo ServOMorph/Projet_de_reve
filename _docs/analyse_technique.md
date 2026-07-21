@@ -14,13 +14,12 @@ js/audio.js         Module Son (IIFE, global `Son`) — Web Audio
 js/garden.js        Globals : mulberry32, hexVersRgb, melange, rgbCss,
                     Ciel (IIFE), classe Plante, classe Luciole, TEINTES
 js/observatoire.js  Module Observatoire — métriques locales, expériences, export
-js/sanctuaire.js    Module SanctuaireNocturne — première expérience réversible
 js/main.js          IIFE privée : boucle rAF, entrées, sauvegarde, rendu ciel/sol
 ```
 
 Chargement par balises `<script>` classiques (pas de modules ES : ils sont
 bloqués en `file://`). Ordre de chargement obligatoire : observatoire → audio →
-garden → sanctuaire → main.
+garden → main.
 Contrainte à préserver pour toute nouvelle feature : **zéro CDN, zéro réseau,
 zéro build**.
 
@@ -124,9 +123,8 @@ moins 5 expositions et 3 sessions, une recommandation est calculée. Elle ne
 supprime jamais le code : « mettre en pause » désactive immédiatement l'expérience,
 puis une suppression du code reste une décision explicite et documentée.
 
-Le Sanctuaire (`sanctuaire_nocturne_v1`) est débloqué après cinq plantes adultes.
-Il remplace temporairement le rendu du jardin par une scène nocturne en parallaxe,
-réagit aux clics et au clavier, puis rend exactement le contrôle au jardin.
+Les idées déjà écartées sont consignées dans `_docs/features_non_retenues.md` et doivent
+être prises en compte avant de proposer une nouvelle expérience.
 
 ## 7. Pistes de features (par coût croissant)
 
@@ -158,9 +156,6 @@ Chaque piste indique ses points d'insertion.
    l'ancre d'URL (`#…`) — le lien recrée le jardin, toujours zéro réseau.
 10. **Constellations mémorielles** : chaque plante morte laisse une étoile à sa
     teinte dans le ciel (persistée en localStorage) — le jardin se souvient.
-11. **Sanctuaire nocturne** — **implémenté en v1.1** : passage après cinq plantes
-    adultes, scène secrète en profondeur, lueurs musicales, mode calme et sortie
-    réversible. Première expérience mesurée par l'Observatoire.
 
 ## 8. Invariants à ne jamais casser
 

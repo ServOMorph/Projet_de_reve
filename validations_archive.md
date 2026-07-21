@@ -23,3 +23,11 @@
 - **Explication simple :** Les métriques restent agrégées dans le navigateur, sans texte saisi, coordonnées précises ni réseau. Les expériences peuvent être mises en pause et évaluées, sans suppression automatique.
 - **Décision :** Acceptée par votre message « je valide », alors que cette demande était la seule en attente.
 - **Conséquence :** Implémentation, vérifications locales, documentation et commit Git autorisés dans `D:\ServOMorph\Projet_de_reve`.
+
+## VAL-20260721-04 — acceptée le 2026-07-21
+
+- **Action demandée :** Retirer le Sanctuaire nocturne de l’application, conserver son idée dans `_docs/features_non_retenues.md`, vérifier le jardin et l’Observatoire, puis créer un commit de retrait.
+- **Justification :** L’utilisateur ne souhaite pas conserver cette idée dans le jeu, mais veut que les futurs choix de roadmap tiennent compte de ce rejet.
+- **Explication simple :** Le code et le rendu du Sanctuaire disparaissent ; sa fiche reste disponible comme mémoire de décision pour ne pas le reproposer tel quel.
+- **Décision :** Acceptée explicitement par votre message « J’autorise VAL-20260721-04 ».
+- **Conséquence :** Suppression ciblée, documentation de l’idée rejetée, vérifications locales et commit Git autorisés dans `D:\ServOMorph\Projet_de_reve`.

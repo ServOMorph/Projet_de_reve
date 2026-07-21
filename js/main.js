@@ -20,7 +20,6 @@
   let modeCalme = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let sonCoupe = false;
   let interactionFaite = false;
-  let pointeurX = 0.5;
 
   /* ---------- Redimensionnement ---------- */
   function redimensionner() {
@@ -93,35 +92,15 @@
   }
 
   /* ---------- Entrées ---------- */
-  canvas.addEventListener("pointermove", e => {
-    pointeurX = Math.max(0, Math.min(1, e.clientX / largeur));
-  }, { passive: true });
-
   canvas.addEventListener("pointerdown", e => {
     if (Observatoire.estOuvert()) return;
     premiereInteraction();
-    if (SanctuaireNocturne.gererClic(e.clientX, e.clientY, largeur, hauteur, solY)) return;
     planter(e.clientX / largeur);
   });
 
   window.addEventListener("keydown", e => {
     if (Observatoire.estOuvert()) return;
     if (e.target.tagName === "BUTTON" && (e.key === "Enter" || e.key === " ")) return;
-    if (SanctuaireNocturne.dedans) {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        SanctuaireNocturne.sortir();
-        return;
-      }
-      if (e.key === "Tab" || e.altKey || e.ctrlKey || e.metaKey) return;
-      e.preventDefault();
-      SanctuaireNocturne.gererClic(
-        largeur * (0.2 + Math.random() * 0.6),
-        hauteur * (0.25 + Math.random() * 0.5),
-        largeur, hauteur, solY
-      );
-      return;
-    }
     if (e.key === "Tab" || e.altKey || e.ctrlKey || e.metaKey) return;
     e.preventDefault();
     // N'importe quelle touche plante une graine : cause → effet, sans erreur possible
@@ -276,19 +255,8 @@
     const etat = Ciel.etat(phase);
     const nuit = 1 - etat.lum;
     const vent = modeCalme ? 0.25 : 0.7 + Math.sin(temps * 0.13) * 0.45;
-    const plantesMatures = plantes.filter(p => p.croissance >= 1 && !p.mourante).length;
-
-    SanctuaireNocturne.mettreAJour(dt, plantesMatures);
-    if (SanctuaireNocturne.dedans) {
-      SanctuaireNocturne.dessinerSanctuaire(ctx, largeur, hauteur, temps, modeCalme, pointeurX);
-      Son.accorderDrone(0.05);
-      requestAnimationFrame(boucle);
-      return;
-    }
-
     dessinerCiel(etat);
     dessinerSol(etat);
-    SanctuaireNocturne.dessinerPassage(ctx, largeur, hauteur, temps, solY);
 
     // Plantes : croissance, chant, dessin
     for (const p of plantes) {

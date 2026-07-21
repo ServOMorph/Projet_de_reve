@@ -23,8 +23,6 @@ Double-cliquez sur `index.html`. C'est tout.
 
 Le jardin est sauvegardé dans le `localStorage` du navigateur — il vous attend d'une visite à l'autre. Rien ne quitte jamais votre machine.
 
-Après l'éclosion de cinq plantes, un passage apparaît au centre du jardin. Il mène au **Sanctuaire nocturne**, un paysage secret en profondeur où chaque clic éveille une lueur et une note. Cette expérience peut être mise en pause depuis l'Observatoire.
-
 ## Observatoire local
 
 Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre de sessions, temps visible, temps actif, temps avec le son, catégories d'interactions et usage des expériences. Le journal ne conserve jamais les touches saisies, les coordonnées précises du pointeur ou du contenu personnel.
@@ -47,8 +45,8 @@ Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre
 
 ## État actuel
 
-v1.1 fonctionnelle : jardin v1.0, Observatoire d'usage local et première expérience réversible,
-le Sanctuaire nocturne. Parcours visuel et persistance vérifiés par Playwright sans erreur console
+v1.2 fonctionnelle : jardin v1.0 et Observatoire d'usage local, prêt à mesurer la prochaine
+expérience retenue. Parcours visuel et persistance vérifiés par Playwright sans erreur console
 ni requête réseau ; rendu audio à valider à l'oreille. Pistes d'évolution :
 [_docs/analyse_technique.md](_docs/analyse_technique.md).
 

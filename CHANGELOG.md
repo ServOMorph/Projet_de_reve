@@ -1,5 +1,16 @@
 # Changelog — projet_de_reve
 
+## v1.2 — 2026-07-21
+
+### Retiré
+- Sanctuaire nocturne : script, interface, rendu, métriques spécifiques et capture de contrôle, à la demande de l'utilisateur.
+
+### Ajouté
+- `_docs/features_non_retenues.md` : registre des idées rejetées pour guider les prochaines analyses et roadmaps.
+
+### Modifié
+- Observatoire conservé comme socle d'évaluation, avec un état explicite lorsqu'aucune expérience n'est en cours.
+
 ## v1.1 — 2026-07-21
 
 ### Ajouté
