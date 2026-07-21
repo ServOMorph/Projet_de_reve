@@ -18,10 +18,45 @@
   <nav id="commandes" aria-label="Commandes du jardin">
     <button id="btn-son" title="Couper ou remettre le son" aria-pressed="false">🔊 Son</button>
     <button id="btn-calme" title="Mode calme : moins de mouvement, son plus doux" aria-pressed="false">🌿 Mode calme</button>
+    <button id="btn-observatoire" title="Voir vos usages et évaluer les expériences">Observatoire</button>
     <button id="btn-nouveau" title="Laisser le jardin retourner à la terre et recommencer">✦ Nouveau jardin</button>
   </nav>
 
   <div id="invite" role="status">cliquez, touchez, ou appuyez sur une touche…</div>
+
+  <button id="btn-sanctuaire" class="appel-sanctuaire" hidden>Entrer dans le Sanctuaire</button>
+  <button id="btn-retour-sanctuaire" class="retour-sanctuaire" hidden>Revenir au jardin</button>
+
+  <section id="observatoire" role="dialog" aria-modal="true" aria-labelledby="observatoire-titre" hidden>
+    <div class="observatoire-carte">
+      <header>
+        <div>
+          <p class="surtitre">Journal de bord local</p>
+          <h2 id="observatoire-titre">Observatoire</h2>
+          <p>Ce qui vous attire guidera les prochains rêves.</p>
+        </div>
+        <button id="btn-fermer-observatoire" aria-label="Fermer l’Observatoire">Fermer</button>
+      </header>
+
+      <div id="observatoire-stats" class="observatoire-stats" aria-live="polite"></div>
+
+      <section class="observatoire-section" aria-labelledby="experiences-titre">
+        <div class="section-titre">
+          <h2 id="experiences-titre">Expériences</h2>
+          <p>Une expérience en pause disparaît du jardin, sans perdre son historique.</p>
+        </div>
+        <div id="observatoire-experiences"></div>
+      </section>
+
+      <footer>
+        <p>Tout reste dans ce navigateur : aucune touche, coordonnée précise ou donnée personnelle n’est enregistrée.</p>
+        <div>
+          <button id="btn-exporter-observatoire">Exporter le journal</button>
+          <button id="btn-effacer-observatoire" class="danger">Effacer les mesures</button>
+        </div>
+      </footer>
+    </div>
+  </section>
 
   <noscript>
     <p style="color:#eee;text-align:center;padding:2rem;">
@@ -29,8 +64,10 @@
     </p>
   </noscript>
 
+  <script src="js/observatoire.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/garden.js"></script>
+  <script src="js/sanctuaire.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

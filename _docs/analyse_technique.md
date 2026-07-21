@@ -13,11 +13,14 @@ style.css           Habillage UI (le canvas est dessiné entièrement en JS)
 js/audio.js         Module Son (IIFE, global `Son`) — Web Audio
 js/garden.js        Globals : mulberry32, hexVersRgb, melange, rgbCss,
                     Ciel (IIFE), classe Plante, classe Luciole, TEINTES
+js/observatoire.js  Module Observatoire — métriques locales, expériences, export
+js/sanctuaire.js    Module SanctuaireNocturne — première expérience réversible
 js/main.js          IIFE privée : boucle rAF, entrées, sauvegarde, rendu ciel/sol
 ```
 
 Chargement par balises `<script>` classiques (pas de modules ES : ils sont
-bloqués en `file://`). Ordre de chargement obligatoire : audio → garden → main.
+bloqués en `file://`). Ordre de chargement obligatoire : observatoire → audio →
+garden → sanctuaire → main.
 Contrainte à préserver pour toute nouvelle feature : **zéro CDN, zéro réseau,
 zéro build**.
 
@@ -109,6 +112,22 @@ directement sur `filtre`.
   par clics + clavier, attendre ~7 s, capturer, vérifier zéro erreur console.
   À rejouer après toute feature (c'est le seul filet : pas de tests unitaires).
 
+### Protocole d'expérience v1.1
+
+`Observatoire` stocke sous `reverie.observatoire.v1` des durées et événements
+catégoriels bornés. Il ne stocke ni touche saisie ni coordonnées. Une expérience
+doit être enregistrée dans `EXPERIENCES`, encapsulée dans son propre module et
+interroger `Observatoire.estActive(id)` avant tout effet.
+
+Cycle de décision : exposition → activation → durée → verdict humain. Après au
+moins 5 expositions et 3 sessions, une recommandation est calculée. Elle ne
+supprime jamais le code : « mettre en pause » désactive immédiatement l'expérience,
+puis une suppression du code reste une décision explicite et documentée.
+
+Le Sanctuaire (`sanctuaire_nocturne_v1`) est débloqué après cinq plantes adultes.
+Il remplace temporairement le rendu du jardin par une scène nocturne en parallaxe,
+réagit aux clics et au clavier, puis rend exactement le contrôle au jardin.
+
 ## 7. Pistes de features (par coût croissant)
 
 Chaque piste indique ses points d'insertion.
@@ -139,6 +158,9 @@ Chaque piste indique ses points d'insertion.
    l'ancre d'URL (`#…`) — le lien recrée le jardin, toujours zéro réseau.
 10. **Constellations mémorielles** : chaque plante morte laisse une étoile à sa
     teinte dans le ciel (persistée en localStorage) — le jardin se souvient.
+11. **Sanctuaire nocturne** — **implémenté en v1.1** : passage après cinq plantes
+    adultes, scène secrète en profondeur, lueurs musicales, mode calme et sortie
+    réversible. Première expérience mesurée par l'Observatoire.
 
 ## 8. Invariants à ne jamais casser
 
@@ -148,3 +170,7 @@ Chaque piste indique ses points d'insertion.
 4. Le mode calme réduit toujours les stimuli, il n'en ajoute jamais.
 5. Déterminisme : même graine ⇒ même plante, y compris après rechargement.
 6. Pas d'emojis dans le code ; UI et code commentés en français.
+7. Toute mesure d'usage reste locale, lisible, exportable et effaçable ; aucun
+   contenu saisi ni coordonnée précise n'est conservé.
+8. Toute expérience peut être mise en pause sans casser le jardin ni perdre son
+   historique ; aucune suppression automatique de code ou de données.

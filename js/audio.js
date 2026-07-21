@@ -127,6 +127,7 @@ const Son = (() => {
   return {
     demarrer, note, eclosion, accorderDrone, couperSon, modeCalme,
     get pret() { return ctx !== null; },
+    get coupe() { return coupe; },
     get tailleGamme() { return GAMME.length; },
   };
 })();
