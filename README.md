@@ -23,6 +23,10 @@ Double-cliquez sur `index.html`. C'est tout.
 
 Le jardin est sauvegardé dans le `localStorage` du navigateur — il vous attend d'une visite à l'autre. Rien ne quitte jamais votre machine.
 
+## Sur mobile et tablette
+
+Touchez le jardin pour planter. Les quatre commandes deviennent une grille facile à atteindre au pouce en portrait, puis une barre compacte en paysage. L'Observatoire s’ouvre comme une feuille défilable sur téléphone et comme une carte centrée sur tablette. Le rendu canvas utilise jusqu’à deux pixels physiques par pixel CSS pour rester net sur les écrans à haute densité.
+
 ## Observatoire local
 
 Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre de sessions, temps visible, temps actif, temps avec le son, catégories d'interactions et usage des expériences. Le journal ne conserve jamais les touches saisies, les coordonnées précises du pointeur ou du contenu personnel.
@@ -45,9 +49,10 @@ Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre
 
 ## État actuel
 
-v1.2 fonctionnelle : jardin v1.0 et Observatoire d'usage local, prêt à mesurer la prochaine
-expérience retenue. Parcours visuel et persistance vérifiés par Playwright sans erreur console
-ni requête réseau ; rendu audio à valider à l'oreille. Pistes d'évolution :
+v1.3 fonctionnelle : jardin v1.0 et Observatoire d'usage local, avec une interface tactile
+responsive vérifiée sur téléphone portrait/paysage et tablette. Parcours visuel et persistance
+vérifiés par Playwright sans erreur console ni requête réseau ; rendu audio à valider à l'oreille.
+Pistes d'évolution :
 [_docs/analyse_technique.md](_docs/analyse_technique.md).
 
 ## Pourquoi ce projet

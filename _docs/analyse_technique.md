@@ -126,6 +126,16 @@ puis une suppression du code reste une décision explicite et documentée.
 Les idées déjà écartées sont consignées dans `_docs/features_non_retenues.md` et doivent
 être prises en compte avant de proposer une nouvelle expérience.
 
+### Responsive et tactile v1.3
+
+Le canvas garde ses coordonnées en pixels CSS, mais son buffer est multiplié par
+`min(devicePixelRatio, 2)` pour rester net sur les écrans mobiles. Toute nouvelle interface
+doit respecter une cible tactile d'au moins 40 px, les zones sûres du téléphone et ces trois
+formats de contrôle : téléphone portrait `390×844`, téléphone paysage `844×390`, tablette
+portrait `768×1024`. En portrait mobile, les commandes forment une grille de deux colonnes et
+l'Observatoire une feuille basse défilable ; sur tablette, l'Observatoire redevient une carte
+centrée ; en paysage, les commandes retrouvent une ligne compacte.
+
 ## 7. Pistes de features (par coût croissant)
 
 Chaque piste indique ses points d'insertion.

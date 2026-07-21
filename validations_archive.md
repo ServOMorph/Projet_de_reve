@@ -31,3 +31,11 @@
 - **Explication simple :** Le code et le rendu du Sanctuaire disparaissent ; sa fiche reste disponible comme mémoire de décision pour ne pas le reproposer tel quel.
 - **Décision :** Acceptée explicitement par votre message « J’autorise VAL-20260721-04 ».
 - **Conséquence :** Suppression ciblée, documentation de l’idée rejetée, vérifications locales et commit Git autorisés dans `D:\ServOMorph\Projet_de_reve`.
+
+## VAL-20260721-05 — acceptée le 2026-07-21
+
+- **Action demandée :** Rendre Rêverie réellement responsive sur mobile et tablette, vérifier les interactions tactiles et créer un commit Git.
+- **Justification :** L’utilisateur veut une version mobile agréable, sans commandes trop petites ni panneau illisible.
+- **Explication simple :** Adapter l’interface à la taille et l’orientation de l’écran, sans modifier les données du jardin et sans réseau.
+- **Décision :** Acceptée explicitement par votre message « J’autorise VAL-20260721-05 ».
+- **Conséquence :** Adaptations d’interface, tests locaux mobile/tablette, documentation et commit Git autorisés dans `D:\ServOMorph\Projet_de_reve`.

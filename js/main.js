@@ -23,8 +23,12 @@
 
   /* ---------- Redimensionnement ---------- */
   function redimensionner() {
-    largeur = canvas.width = window.innerWidth;
-    hauteur = canvas.height = window.innerHeight;
+    largeur = window.innerWidth;
+    hauteur = window.innerHeight;
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(largeur * ratio);
+    canvas.height = Math.round(hauteur * ratio);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     etoiles = [];
     const nb = Math.floor((largeur * hauteur) / 9000);
     for (let i = 0; i < nb; i++) {
@@ -37,6 +41,7 @@
     }
   }
   window.addEventListener("resize", redimensionner);
+  window.visualViewport?.addEventListener("resize", redimensionner);
   redimensionner();
 
   /* ---------- Sol ---------- */

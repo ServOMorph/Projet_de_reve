@@ -5,18 +5,24 @@
 html, body {
   width: 100%;
   height: 100%;
+  min-height: 100dvh;
   overflow: hidden;
   background: #0a0e2a;
   font-family: Georgia, "Times New Roman", serif;
   user-select: none;
   -webkit-user-select: none;
+  overscroll-behavior: none;
 }
 
 #ciel {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
   cursor: crosshair;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #titre {
@@ -59,6 +65,7 @@ html, body {
 #commandes:hover, #commandes:focus-within { opacity: 1; }
 
 #commandes button {
+  min-height: 44px;
   font-family: inherit;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
@@ -67,6 +74,8 @@ html, body {
   border-radius: 999px;
   padding: 0.45rem 0.9rem;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   backdrop-filter: blur(4px);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
@@ -166,6 +175,7 @@ html, body {
 }
 
 .observatoire-carte button {
+  min-height: 44px;
   border: 1px solid rgba(176, 226, 219, 0.25);
   border-radius: 999px;
   padding: 0.48rem 0.82rem;
@@ -173,6 +183,8 @@ html, body {
   background: rgba(172, 225, 215, 0.07);
   font: 0.82rem Georgia, "Times New Roman", serif;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .observatoire-carte button:hover,
@@ -290,10 +302,96 @@ body.panneau-ouvert #ciel { filter: saturate(0.72) brightness(0.65); }
   #invite { animation: none; opacity: 0.6; }
 }
 
-@media (max-width: 720px) {
-  #commandes { left: 0.75rem; right: 0.75rem; justify-content: flex-end; flex-wrap: wrap; }
+@media (max-width: 820px) {
+  #titre {
+    top: calc(0.9rem + env(safe-area-inset-top));
+    left: max(1rem, env(safe-area-inset-left));
+    right: 1rem;
+  }
+  #titre h1 { font-size: 1.55rem; letter-spacing: 0.25em; }
+  #titre p { max-width: 15rem; font-size: 0.86rem; }
+
+  #commandes {
+    right: max(0.65rem, env(safe-area-inset-right));
+    bottom: calc(0.65rem + env(safe-area-inset-bottom));
+    left: max(0.65rem, env(safe-area-inset-left));
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+    opacity: 0.92;
+  }
+  #commandes button {
+    min-width: 0;
+    padding: 0.55rem 0.42rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  #invite {
+    right: 1rem;
+    bottom: calc(6.25rem + env(safe-area-inset-bottom));
+    left: 1rem;
+    transform: none;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  #observatoire {
+    align-items: end;
+    padding: 0;
+  }
+  .observatoire-carte {
+    width: 100%;
+    max-height: min(90dvh, 760px);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 1.35rem 1.35rem 0 0;
+    padding: 1.15rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  }
+  .observatoire-carte > header { gap: 0.65rem; }
+  .observatoire-carte h2 { font-size: clamp(1.6rem, 9vw, 2.15rem); }
+  .observatoire-carte .surtitre { font-size: 0.65rem; letter-spacing: 0.17em; }
   .observatoire-stats { grid-template-columns: repeat(2, 1fr); }
+  .observatoire-stats article { min-height: 76px; padding: 0.75rem; }
+  .observatoire-stats strong { font-size: 1.25rem; }
   .experience dl { grid-template-columns: repeat(2, 1fr); }
   .observatoire-carte > footer, .section-titre { flex-direction: column; }
-  .observatoire-carte > footer div { justify-content: flex-start; }
+  .observatoire-carte > footer { gap: 0.8rem; }
+  .observatoire-carte > footer div { width: 100%; justify-content: stretch; }
+  .observatoire-carte > footer button { flex: 1 1 10rem; }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  #commandes { opacity: 0.92; }
+  #commandes button { background: rgba(10, 14, 42, 0.62); }
+}
+
+@media (min-width: 600px) and (max-width: 820px) and (orientation: portrait) {
+  #observatoire {
+    align-items: center;
+    padding: 1.25rem;
+  }
+  .observatoire-carte {
+    width: min(720px, 100%);
+    max-height: 88dvh;
+    border: 1px solid rgba(170, 224, 217, 0.22);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 820px) and (orientation: landscape) {
+  #titre { top: 0.6rem; }
+  #titre p { display: none; }
+  #commandes {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    bottom: calc(0.45rem + env(safe-area-inset-bottom));
+  }
+  #commandes button { min-height: 40px; font-size: 0.74rem; }
+  #invite { bottom: calc(3.45rem + env(safe-area-inset-bottom)); }
+  .observatoire-carte {
+    max-height: 94dvh;
+    padding-top: 0.8rem;
+  }
 }

@@ -8,10 +8,11 @@ HTML + CSS + JavaScript vanilla, Web Audio API, canvas 2D. Zéro dépendance, z�
 fonctionne en file:// (pas de modules ES). Données uniquement en localStorage.
 
 ## État actuel (réécrit intégralement à chaque /close)
-Rêverie v1.2 fonctionnelle : jardin sonore génératif et Observatoire d'usage local, prêt à
-évaluer une future expérience. Le Sanctuaire nocturne a été retiré et son rejet est mémorisé dans
-`_docs/features_non_retenues.md`. Le jardin, la persistance, l'Observatoire et l'absence de
-réseau sont validés localement ; l'audio et l'impact émotionnel restent à tester humainement.
+Rêverie v1.3 fonctionnelle : jardin sonore génératif et Observatoire d'usage local, prêt à
+évaluer une future expérience, avec interface tactile responsive et canvas haute densité. Le
+Sanctuaire nocturne a été retiré et son rejet est mémorisé dans `_docs/features_non_retenues.md`.
+Le jardin, la persistance, l'Observatoire et l'absence de réseau sont validés localement sur
+téléphone portrait/paysage et tablette ; l'audio et l'impact émotionnel restent à tester humainement.
 
 ## Décisions structurantes (append only — 10 entrées max, 5 lignes max/entrée, archiver au-delà)
 - 2026-07-21 : Initialisation du protocole vibecoding.
@@ -27,3 +28,5 @@ réseau sont validés localement ; l'audio et l'impact émotionnel restent à te
   peuvent recommander garder/améliorer/pause mais aucune feature n'est supprimée automatiquement.
 - 2026-07-21 : Le Sanctuaire nocturne est retiré à la demande de l'utilisateur. Son concept est
   consigné comme rejeté et ne doit pas être reproposé tel quel dans une roadmap.
+- 2026-07-21 : Rêverie est tactile et responsive : cibles de 44 px, zones sûres, grille portrait,
+  barre paysage et Observatoire adapté à chaque format ; le canvas est net jusqu'à un ratio 2.

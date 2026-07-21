@@ -1,5 +1,16 @@
 # Changelog — projet_de_reve
 
+## v1.3 — 2026-07-21
+
+### Modifié
+- Interface responsive tactile : commandes de 44 px, grille mobile en portrait, barre compacte en paysage et prise en compte des zones sûres.
+- Observatoire adapté en feuille défilable sur téléphone et carte centrée sur tablette.
+- Canvas haute densité, limité à un ratio de 2 pour rester net sans surcharger le rendu.
+
+### Vérifié
+- Interactions tactiles, plantation, Observatoire, console et absence de réseau validés en téléphone portrait `390×844`, paysage `844×390` et tablette `768×1024`.
+- Captures de contrôle ajoutées dans `_artifacts/`.
+
 ## v1.2 — 2026-07-21
 
 ### Retiré
