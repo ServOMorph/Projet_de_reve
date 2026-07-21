@@ -1,0 +1,111 @@
+/* Rêverie — jardin sonore génératif */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0e2a;
+  font-family: Georgia, "Times New Roman", serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#ciel {
+  position: fixed;
+  inset: 0;
+  display: block;
+  cursor: crosshair;
+}
+
+#titre {
+  position: fixed;
+  top: 1.4rem;
+  left: 1.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transition: opacity 3s ease;
+}
+
+#titre h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: 0.35em;
+  font-variant: small-caps;
+}
+
+#titre p {
+  font-size: 0.95rem;
+  font-style: italic;
+  opacity: 0.75;
+  margin-top: 0.2rem;
+}
+
+#titre.estompe { opacity: 0.25; }
+
+#commandes {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.4rem;
+  display: flex;
+  gap: 0.6rem;
+  opacity: 0.45;
+  transition: opacity 0.6s ease;
+}
+
+#commandes:hover, #commandes:focus-within { opacity: 1; }
+
+#commandes button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(10, 14, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#commandes button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#commandes button[aria-pressed="true"] {
+  background: rgba(120, 200, 160, 0.25);
+  border-color: rgba(120, 220, 170, 0.6);
+}
+
+#commandes button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+#invite {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  font-size: 1rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  animation: respiration 4s ease-in-out infinite;
+  transition: opacity 2s ease;
+}
+
+#invite.cache { opacity: 0; animation: none; }
+
+@keyframes respiration {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.85; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #invite { animation: none; opacity: 0.6; }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rêverie — jardin sonore</title>
+  <meta name="description" content="Un jardin génératif où chaque graine devient une plante qui chante. 100% local, hors-ligne, sans tracking.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="ciel" aria-label="Jardin sonore génératif. Cliquez ou appuyez sur une touche pour planter une graine."></canvas>
+
+  <header id="titre" aria-hidden="false">
+    <h1>Rêverie</h1>
+    <p>Plantez une graine. Chaque fleur a sa note.</p>
+  </header>
+
+  <nav id="commandes" aria-label="Commandes du jardin">
+    <button id="btn-son" title="Couper ou remettre le son" aria-pressed="false">🔊 Son</button>
+    <button id="btn-calme" title="Mode calme : moins de mouvement, son plus doux" aria-pressed="false">🌿 Mode calme</button>
+    <button id="btn-nouveau" title="Laisser le jardin retourner à la terre et recommencer">✦ Nouveau jardin</button>
+  </nav>
+
+  <div id="invite" role="status">cliquez, touchez, ou appuyez sur une touche…</div>
+
+  <noscript>
+    <p style="color:#eee;text-align:center;padding:2rem;">
+      Rêverie a besoin de JavaScript pour faire pousser son jardin — tout reste sur votre machine, rien ne part sur Internet.
+    </p>
+  </noscript>
+
+  <script src="js/audio.js"></script>
+  <script src="js/garden.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
