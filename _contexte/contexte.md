@@ -8,11 +8,11 @@ HTML + CSS + JavaScript vanilla, Web Audio API, canvas 2D. Zéro dépendance, z�
 fonctionne en file:// (pas de modules ES). Données uniquement en localStorage.
 
 ## État actuel (réécrit intégralement à chaque /close)
-Rêverie v1.3 fonctionnelle : jardin sonore génératif et Observatoire d'usage local, prêt à
-évaluer une future expérience, avec interface tactile responsive et canvas haute densité. Le
-Sanctuaire nocturne a été retiré et son rejet est mémorisé dans `_docs/features_non_retenues.md`.
-Le jardin, la persistance, l'Observatoire et l'absence de réseau sont validés localement sur
-téléphone portrait/paysage et tablette ; l'audio et l'impact émotionnel restent à tester humainement.
+Rêverie v1.4 présente un jardin sonore avec un unique bouton-fleur qui ouvre les réglages Son,
+Mode calme et Nouveau jardin. L'invite de plantation ne chevauche plus ce bouton ; les versions
+racine et `dist/` sont synchronisées. L'Observatoire est conservé localement mais masqué de la
+navigation. Le son est signalé absent sur la production Netlify et reste à diagnostiquer ; aucun
+accès réseau n'a été effectué pendant cette session.
 
 ## Décisions structurantes (append only — 10 entrées max, 5 lignes max/entrée, archiver au-delà)
 - 2026-07-21 : Initialisation du protocole vibecoding.
@@ -30,3 +30,7 @@ téléphone portrait/paysage et tablette ; l'audio et l'impact émotionnel reste
   consigné comme rejeté et ne doit pas être reproposé tel quel dans une roadmap.
 - 2026-07-21 : Rêverie est tactile et responsive : cibles de 44 px, zones sûres, grille portrait,
   barre paysage et Observatoire adapté à chaque format ; le canvas est net jusqu'à un ratio 2.
+- 2026-07-24 : Les commandes permanentes sont remplacées par un bouton-fleur discret au sol ;
+  l'invite de plantation conserve une marge lisible au-dessus de cette entrée.
+- 2026-07-24 : L'Observatoire est masqué du menu à la demande de l'utilisateur, sans supprimer
+  son module ni les données locales déjà enregistrées.

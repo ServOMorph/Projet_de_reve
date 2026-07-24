@@ -1,5 +1,14 @@
 # Changelog — projet_de_reve
 
+## v1.4 — 2026-07-24
+
+### Modifié
+- Les quatre commandes permanentes sont regroupées dans un unique bouton-fleur intégré à l'herbe, avec un panneau d'actions compact.
+- L'Observatoire est retiré du menu visible, sans suppression de son module ni des données locales.
+
+### Corrigé
+- L'invite de plantation est repositionnée pour ne plus chevaucher le bouton Menu.
+
 ## v1.3 — 2026-07-21
 
 ### Modifié

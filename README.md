@@ -16,20 +16,20 @@ Double-cliquez sur `index.html`. C'est tout.
 |---|---|
 | Clic / toucher | Plante une graine à cet endroit |
 | N'importe quelle touche du clavier | Plante une graine (cause → effet, sans erreur possible) |
+| Bouton fleur | Ouvre les réglages discrets du jardin |
 | 🔊 Son | Coupe / remet le son |
 | 🌿 Mode calme | Moins de mouvement, pas de lucioles ni d'étoiles filantes, son plus doux, cycle ralenti |
-| Observatoire | Affiche vos durées, usages et l'évaluation des expériences |
 | ✦ Nouveau jardin | Les plantes retournent doucement à la terre |
 
 Le jardin est sauvegardé dans le `localStorage` du navigateur — il vous attend d'une visite à l'autre. Rien ne quitte jamais votre machine.
 
 ## Sur mobile et tablette
 
-Touchez le jardin pour planter. Les quatre commandes deviennent une grille facile à atteindre au pouce en portrait, puis une barre compacte en paysage. L'Observatoire s’ouvre comme une feuille défilable sur téléphone et comme une carte centrée sur tablette. Le rendu canvas utilise jusqu’à deux pixels physiques par pixel CSS pour rester net sur les écrans à haute densité.
+Touchez le jardin pour planter. Un unique bouton-fleur, placé dans l'herbe et facile à atteindre au pouce, ouvre un panneau compact sur téléphone, tablette ou ordinateur. Le rendu canvas utilise jusqu’à deux pixels physiques par pixel CSS pour rester net sur les écrans à haute densité.
 
 ## Observatoire local
 
-Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre de sessions, temps visible, temps actif, temps avec le son, catégories d'interactions et usage des expériences. Le journal ne conserve jamais les touches saisies, les coordonnées précises du pointeur ou du contenu personnel.
+Le module Observatoire est conservé localement, mais n'est plus proposé dans le menu visible. Le journal existant ne conserve jamais les touches saisies, les coordonnées précises du pointeur ou du contenu personnel.
 
 - stockage exclusivement dans `localStorage` sous `reverie.observatoire.v1` ;
 - aucune requête réseau ni tracking externe ;
@@ -49,11 +49,7 @@ Rêverie mesure ce qui aide réellement à faire évoluer l'application : nombre
 
 ## État actuel
 
-v1.3 fonctionnelle : jardin v1.0 et Observatoire d'usage local, avec une interface tactile
-responsive vérifiée sur téléphone portrait/paysage et tablette. Parcours visuel et persistance
-vérifiés par Playwright sans erreur console ni requête réseau ; rendu audio à valider à l'oreille.
-Pistes d'évolution :
-[_docs/analyse_technique.md](_docs/analyse_technique.md).
+v1.4 fonctionnelle : le jardin présente un bouton-fleur discret ouvrant Son, Mode calme et Nouveau jardin ; l'invite de plantation reste visible au-dessus. L'Observatoire est conservé mais masqué du menu. La production Netlify signale un problème de son à diagnostiquer avant l'évaluation humaine du rendu audio.
 
 ## Pourquoi ce projet
 
