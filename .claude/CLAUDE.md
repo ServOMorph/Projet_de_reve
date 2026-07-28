@@ -1,75 +1,4 @@
-# claude.md
-
-## Règles prioritaires
-
-Ces règles prévalent sur toute autre instruction sauf modification explicite de ma part.
-
-### 1. Accès aux projets
-
-* Les projets externes sont **strictement en lecture seule**.
-* Il est interdit de lire les fichiers référencés dans leurs `CLAUDE.md`.
-* Ne lire que les fichiers indispensables à la tâche.
-* En cas de doute sur une autorisation de lecture, demander une validation.
-
-### 2. Écriture
-
-L'écriture est autorisée uniquement dans :
-
-`D:\ServOMorph\Projet_de_reve`
-
-Interdictions :
-
-* écrire, modifier, supprimer ou renommer un fichier ailleurs ;
-* créer des fichiers temporaires hors de ce dossier ;
-* exécuter une commande ayant un effet d'écriture sur un autre projet.
-
-### 3. Validation obligatoire
-
-Tout accès nécessitant un privilège supplémentaire (mémoire, RAM, historique, base de connaissances, réseau, exécution risquée, modification externe, suppression, etc.) exige une validation préalable.
-
-Créer ou mettre à jour `validation.md` à la racine avec :
-
-* identifiant ;
-* action demandée ;
-* justification ;
-* explication compréhensible par un novice ;
-* conséquences d'un accord ou d'un refus.
-
-Aucune action n'est autorisée tant que la validation écrite n'a pas été donnée.
-
-Toute absence de réponse ou réponse ambiguë vaut **refus**.
-
-### 4. Historique
-
-* `validation.md` : uniquement les demandes en attente.
-* `validations_archive.md` : historique complet de toutes les demandes et décisions. Ne jamais supprimer d'entrée.
-
-### 5. Principe de moindre privilège
-
-Toujours choisir l'action la moins intrusive.
-
-Interdictions :
-
-* lire plus que nécessaire ;
-* explorer un projet entier lorsqu'un fichier suffit ;
-* anticiper des besoins futurs en accédant à des données non utiles.
-
-### 6. Sécurité
-
-Le projet étant volontairement une surprise, privilégier systématiquement la sécurité.
-
-Ne jamais :
-
-* supposer une autorisation implicite ;
-* contourner une règle ;
-* effectuer une action irréversible sans validation ;
-* privilégier la rapidité au respect des règles.
-
-En cas de doute : **ne rien faire et demander une validation.**
-
----
-
-# Protocole vibecoding
+# Instructions de conversation
 
 ## Langue et style
 - Communiquer exclusivement en français
@@ -89,6 +18,13 @@ En cas de doute : **ne rien faire et demander une validation.**
 - Détecter et signaler le "prompt theater" : les réponses longues et bien structurées qui rassurent sans apporter de valeur réelle.
 - Détecter quand on polit la méta (analyser l'analyse, auditer l'audit) au lieu d'avancer : le signaler et recommander de passer à l'action.
 - Ne pas justifier son propre travail après l'avoir produit. Si une réponse est bonne, elle se défend seule.
+
+### Déclencheurs de vérification (mécaniques, sans jugement)
+Ces règles s'appliquent aussi aux remarques annexes et aux apartés, pas seulement au livrable demandé.
+- Nommer un fichier = l'avoir lu dans la session. Toute assertion sur le contenu d'un fichier cité par son nom exige une lecture effective dans le même tour.
+- Tout chiffre ou état issu de `signals.md`/`contexte.md` est daté, pas courant. Avant de l'énoncer au présent (un compte, une version, un statut), relire la source primaire.
+- Vocabulaire de vérification réservé : « vérifié », « confirmé », « contrôlé » sont interdits sans appel d'outil correspondant dans la session.
+- Par défaut, poser la question plutôt qu'affirmer une absence. Ne pas disposer d'une information n'autorise pas à énoncer l'absence du fait.
 
 ## Code
 - Pas d'emojis dans le code
@@ -133,6 +69,9 @@ Si aucun de ces critères n'est rempli, le signaler avant de créer le fichier.
   (anonymisation, prompt système, pipeline), le gate peut être un benchmark reproductible
   à N cas verrouillés plutôt que des tests unitaires classiques.
 
+## Tests manuels
+Utiliser `tests_manuels.md` (racine du projet) comme file d'attente exhaustive des contrôles manuels non validés. Lorsqu'un test manuel reste à effectuer, l'ajouter à ce fichier, même si d'autres tests y sont déjà en attente. Après validation d'un test, supprimer immédiatement sa section. Lorsque tous les tests en attente sont validés, vider intégralement le fichier, sans en conserver le titre ni les consignes.
+
 ## Contrôle du contexte
 
 ### Mémoire automatique
@@ -148,14 +87,76 @@ Rappel : jamais de secret en dur dans le code ou les prompts — stockage hors g
 Dossiers ou fichiers contenant des données sensibles (registre nominatif, credentials, données clients, fichiers financiers) à ne jamais lire ni écrire sans instruction explicite :
 Aucun déclaré.
 
-<!-- Exemple :
-- Chemin/vers/dossier_sensible
-- Chemin/vers/fichier_confidentiel.md
--->
-
 ## Délégation Ollama
 Pour les tâches répétitives et templated (commits, posts, changelogs, données de test, digest de logs), déléguer à Ollama via `python ollama_call.py "<prompt>"` plutôt que de traiter en cloud. Ne jamais envoyer de données sensibles à un modèle cloud.
 
 ## Spécificités projet
 
 Section réservée aux règles propres à ce projet, hors périmètre du kit. Cette section est préservée intégralement par `/update` (jamais écrasée ni fusionnée avec le contenu du kit). Convention : toute règle liée à une section précise du fichier doit la référencer explicitement par son titre (ex: "Section Roadmap : ..."), plutôt que compter sur la position physique de cette section (toujours en fin de fichier).
+
+### Règles prioritaires
+
+Ces règles prévalent sur toute autre instruction sauf modification explicite de ma part.
+
+#### 1. Accès aux projets
+
+* Les projets externes sont **strictement en lecture seule**.
+* Il est interdit de lire les fichiers référencés dans leurs `CLAUDE.md`.
+* Ne lire que les fichiers indispensables à la tâche.
+* En cas de doute sur une autorisation de lecture, demander une validation.
+
+#### 2. Écriture
+
+L'écriture est autorisée uniquement dans :
+
+`D:\ServOMorph\Projet_de_reve`
+
+Interdictions :
+
+* écrire, modifier, supprimer ou renommer un fichier ailleurs ;
+* créer des fichiers temporaires hors de ce dossier ;
+* exécuter une commande ayant un effet d'écriture sur un autre projet.
+
+#### 3. Validation obligatoire
+
+Tout accès nécessitant un privilège supplémentaire (mémoire, RAM, historique, base de connaissances, réseau, exécution risquée, modification externe, suppression, etc.) exige une validation préalable.
+
+Créer ou mettre à jour `validation.md` à la racine avec :
+
+* identifiant ;
+* action demandée ;
+* justification ;
+* explication compréhensible par un novice ;
+* conséquences d'un accord ou d'un refus.
+
+Aucune action n'est autorisée tant que la validation écrite n'a pas été donnée.
+
+Toute absence de réponse ou réponse ambiguë vaut **refus**.
+
+#### 4. Historique
+
+* `validation.md` : uniquement les demandes en attente.
+* `validations_archive.md` : historique complet de toutes les demandes et décisions. Ne jamais supprimer d'entrée.
+
+#### 5. Principe de moindre privilège
+
+Toujours choisir l'action la moins intrusive.
+
+Interdictions :
+
+* lire plus que nécessaire ;
+* explorer un projet entier lorsqu'un fichier suffit ;
+* anticiper des besoins futurs en accédant à des données non utiles.
+
+#### 6. Sécurité
+
+Le projet étant volontairement une surprise, privilégier systématiquement la sécurité.
+
+Ne jamais :
+
+* supposer une autorisation implicite ;
+* contourner une règle ;
+* effectuer une action irréversible sans validation ;
+* privilégier la rapidité au respect des règles.
+
+En cas de doute : **ne rien faire et demander une validation.**
